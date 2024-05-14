@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Serilog;
-using Npgsql;
+
 
 public class MigrationHostedService<TDbContext>(
     IServiceScopeFactory scopeFactory)
@@ -28,7 +28,7 @@ public class MigrationHostedService<TDbContext>(
 
             _logger.Information("Migrations complete for {DbContext}", typeof(TDbContext).Name);
         }
-        catch (Exception ex) when (ex is SocketException or NpgsqlException)
+        catch (Exception ex) when (ex is SocketException)
         {
             _logger.Error(ex, "Could not connect to the database. Please check the connection string and make sure the database is running.");
             throw;

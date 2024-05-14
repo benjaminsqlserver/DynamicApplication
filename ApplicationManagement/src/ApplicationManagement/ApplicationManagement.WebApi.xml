@@ -1,0 +1,253 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ApplicationManagement</name>
+    </assembly>
+    <members>
+        <member name="M:ApplicationManagement.Controllers.v1.DropdownChoiceQuestionsController.AddDropdownChoiceQuestion(ApplicationManagement.Domain.DropdownChoiceQuestions.Dtos.DropdownChoiceQuestionForCreationDto)">
+            <summary>
+            Creates a new DropdownChoiceQuestion record.
+            </summary>
+        </member>
+        <member name="M:ApplicationManagement.Controllers.v1.DropdownChoiceQuestionsController.GetDropdownChoiceQuestion(System.Guid)">
+            <summary>
+            Gets a single DropdownChoiceQuestion by ID.
+            </summary>
+        </member>
+        <member name="M:ApplicationManagement.Controllers.v1.DropdownChoiceQuestionsController.GetDropdownChoiceQuestions(ApplicationManagement.Domain.DropdownChoiceQuestions.Dtos.DropdownChoiceQuestionParametersDto)">
+            <summary>
+            Gets a list of all DropdownChoiceQuestions.
+            </summary>
+        </member>
+        <member name="M:ApplicationManagement.Controllers.v1.DropdownChoiceQuestionsController.UpdateDropdownChoiceQuestion(System.Guid,ApplicationManagement.Domain.DropdownChoiceQuestions.Dtos.DropdownChoiceQuestionForUpdateDto)">
+            <summary>
+            Updates an entire existing DropdownChoiceQuestion.
+            </summary>
+        </member>
+        <member name="M:ApplicationManagement.Controllers.v1.DropdownChoiceQuestionsController.DeleteDropdownChoiceQuestion(System.Guid)">
+            <summary>
+            Deletes an existing DropdownChoiceQuestion record.
+            </summary>
+        </member>
+        <member name="M:ApplicationManagement.Controllers.v1.MultipleChoiceQuestionsController.AddMultipleChoiceQuestion(ApplicationManagement.Domain.MultipleChoiceQuestions.Dtos.MultipleChoiceQuestionForCreationDto)">
+            <summary>
+            Creates a new MultipleChoiceQuestion record.
+            </summary>
+        </member>
+        <member name="M:ApplicationManagement.Controllers.v1.MultipleChoiceQuestionsController.GetMultipleChoiceQuestion(System.Guid)">
+            <summary>
+            Gets a single MultipleChoiceQuestion by ID.
+            </summary>
+        </member>
+        <member name="M:ApplicationManagement.Controllers.v1.MultipleChoiceQuestionsController.GetMultipleChoiceQuestions(ApplicationManagement.Domain.MultipleChoiceQuestions.Dtos.MultipleChoiceQuestionParametersDto)">
+            <summary>
+            Gets a list of all MultipleChoiceQuestions.
+            </summary>
+        </member>
+        <member name="M:ApplicationManagement.Controllers.v1.MultipleChoiceQuestionsController.UpdateMultipleChoiceQuestion(System.Guid,ApplicationManagement.Domain.MultipleChoiceQuestions.Dtos.MultipleChoiceQuestionForUpdateDto)">
+            <summary>
+            Updates an entire existing MultipleChoiceQuestion.
+            </summary>
+        </member>
+        <member name="M:ApplicationManagement.Controllers.v1.MultipleChoiceQuestionsController.DeleteMultipleChoiceQuestion(System.Guid)">
+            <summary>
+            Deletes an existing MultipleChoiceQuestion record.
+            </summary>
+        </member>
+        <member name="M:ApplicationManagement.Controllers.v1.ProgramApplicantCustomQuestionResponsesController.AddProgramApplicantCustomQuestionResponse(ApplicationManagement.Domain.ProgramApplicantCustomQuestionResponses.Dtos.ProgramApplicantCustomQuestionResponseForCreationDto)">
+            <summary>
+            Creates a new ProgramApplicantCustomQuestionResponse record.
+            </summary>
+        </member>
+        <member name="M:ApplicationManagement.Controllers.v1.ProgramApplicantCustomQuestionResponsesController.GetProgramApplicantCustomQuestionResponse(System.Guid)">
+            <summary>
+            Gets a single ProgramApplicantCustomQuestionResponse by ID.
+            </summary>
+        </member>
+        <member name="M:ApplicationManagement.Controllers.v1.ProgramApplicantCustomQuestionResponsesController.GetProgramApplicantCustomQuestionResponses(ApplicationManagement.Domain.ProgramApplicantCustomQuestionResponses.Dtos.ProgramApplicantCustomQuestionResponseParametersDto)">
+            <summary>
+            Gets a list of all ProgramApplicantCustomQuestionResponses.
+            </summary>
+        </member>
+        <member name="M:ApplicationManagement.Controllers.v1.ProgramApplicantCustomQuestionResponsesController.UpdateProgramApplicantCustomQuestionResponse(System.Guid,ApplicationManagement.Domain.ProgramApplicantCustomQuestionResponses.Dtos.ProgramApplicantCustomQuestionResponseForUpdateDto)">
+            <summary>
+            Updates an entire existing ProgramApplicantCustomQuestionResponse.
+            </summary>
+        </member>
+        <member name="M:ApplicationManagement.Controllers.v1.ProgramApplicantCustomQuestionResponsesController.DeleteProgramApplicantCustomQuestionResponse(System.Guid)">
+            <summary>
+            Deletes an existing ProgramApplicantCustomQuestionResponse record.
+            </summary>
+        </member>
+        <member name="M:ApplicationManagement.Controllers.v1.ProgramApplicantPersonalInformationsController.AddProgramApplicantPersonalInformation(ApplicationManagement.Domain.ProgramApplicantPersonalInformations.Dtos.ProgramApplicantPersonalInformationForCreationDto)">
+            <summary>
+            Creates a new ProgramApplicantPersonalInformation record.
+            </summary>
+        </member>
+        <member name="M:ApplicationManagement.Controllers.v1.ProgramApplicantPersonalInformationsController.GetProgramApplicantPersonalInformation(System.Guid)">
+            <summary>
+            Gets a single ProgramApplicantPersonalInformation by ID.
+            </summary>
+        </member>
+        <member name="M:ApplicationManagement.Controllers.v1.ProgramApplicantPersonalInformationsController.GetProgramApplicantPersonalInformations(ApplicationManagement.Domain.ProgramApplicantPersonalInformations.Dtos.ProgramApplicantPersonalInformationParametersDto)">
+            <summary>
+            Gets a list of all ProgramApplicantPersonalInformations.
+            </summary>
+        </member>
+        <member name="M:ApplicationManagement.Controllers.v1.ProgramApplicantPersonalInformationsController.UpdateProgramApplicantPersonalInformation(System.Guid,ApplicationManagement.Domain.ProgramApplicantPersonalInformations.Dtos.ProgramApplicantPersonalInformationForUpdateDto)">
+            <summary>
+            Updates an entire existing ProgramApplicantPersonalInformation.
+            </summary>
+        </member>
+        <member name="M:ApplicationManagement.Controllers.v1.ProgramApplicantPersonalInformationsController.DeleteProgramApplicantPersonalInformation(System.Guid)">
+            <summary>
+            Deletes an existing ProgramApplicantPersonalInformation record.
+            </summary>
+        </member>
+        <member name="M:ApplicationManagement.Controllers.v1.ProgramCustomQuestionsController.AddProgramCustomQuestion(ApplicationManagement.Domain.ProgramCustomQuestions.Dtos.ProgramCustomQuestionForCreationDto)">
+            <summary>
+            Creates a new ProgramCustomQuestion record.
+            </summary>
+        </member>
+        <member name="M:ApplicationManagement.Controllers.v1.ProgramCustomQuestionsController.GetProgramCustomQuestion(System.Guid)">
+            <summary>
+            Gets a single ProgramCustomQuestion by ID.
+            </summary>
+        </member>
+        <member name="M:ApplicationManagement.Controllers.v1.ProgramCustomQuestionsController.GetProgramCustomQuestions(ApplicationManagement.Domain.ProgramCustomQuestions.Dtos.ProgramCustomQuestionParametersDto)">
+            <summary>
+            Gets a list of all ProgramCustomQuestions.
+            </summary>
+        </member>
+        <member name="M:ApplicationManagement.Controllers.v1.ProgramCustomQuestionsController.UpdateProgramCustomQuestion(System.Guid,ApplicationManagement.Domain.ProgramCustomQuestions.Dtos.ProgramCustomQuestionForUpdateDto)">
+            <summary>
+            Updates an entire existing ProgramCustomQuestion.
+            </summary>
+        </member>
+        <member name="M:ApplicationManagement.Controllers.v1.ProgramCustomQuestionsController.DeleteProgramCustomQuestion(System.Guid)">
+            <summary>
+            Deletes an existing ProgramCustomQuestion record.
+            </summary>
+        </member>
+        <member name="M:ApplicationManagement.Controllers.v1.ProgramsController.AddProgram(ApplicationManagement.Domain.Programs.Dtos.ProgramForCreationDto)">
+            <summary>
+            Creates a new Program record.
+            </summary>
+        </member>
+        <member name="M:ApplicationManagement.Controllers.v1.ProgramsController.GetProgram(System.Guid)">
+            <summary>
+            Gets a single Program by ID.
+            </summary>
+        </member>
+        <member name="M:ApplicationManagement.Controllers.v1.ProgramsController.GetPrograms(ApplicationManagement.Domain.Programs.Dtos.ProgramParametersDto)">
+            <summary>
+            Gets a list of all Programs.
+            </summary>
+        </member>
+        <member name="M:ApplicationManagement.Controllers.v1.ProgramsController.UpdateProgram(System.Guid,ApplicationManagement.Domain.Programs.Dtos.ProgramForUpdateDto)">
+            <summary>
+            Updates an entire existing Program.
+            </summary>
+        </member>
+        <member name="M:ApplicationManagement.Controllers.v1.ProgramsController.DeleteProgram(System.Guid)">
+            <summary>
+            Deletes an existing Program record.
+            </summary>
+        </member>
+        <member name="M:ApplicationManagement.Controllers.v1.QuestionTypesController.AddQuestionType(ApplicationManagement.Domain.QuestionTypes.Dtos.QuestionTypeForCreationDto)">
+            <summary>
+            Creates a new QuestionType record.
+            </summary>
+        </member>
+        <member name="M:ApplicationManagement.Controllers.v1.QuestionTypesController.GetQuestionType(System.Guid)">
+            <summary>
+            Gets a single QuestionType by ID.
+            </summary>
+        </member>
+        <member name="M:ApplicationManagement.Controllers.v1.QuestionTypesController.GetQuestionTypes(ApplicationManagement.Domain.QuestionTypes.Dtos.QuestionTypeParametersDto)">
+            <summary>
+            Gets a list of all QuestionTypes.
+            </summary>
+        </member>
+        <member name="M:ApplicationManagement.Controllers.v1.QuestionTypesController.UpdateQuestionType(System.Guid,ApplicationManagement.Domain.QuestionTypes.Dtos.QuestionTypeForUpdateDto)">
+            <summary>
+            Updates an entire existing QuestionType.
+            </summary>
+        </member>
+        <member name="M:ApplicationManagement.Controllers.v1.QuestionTypesController.DeleteQuestionType(System.Guid)">
+            <summary>
+            Deletes an existing QuestionType record.
+            </summary>
+        </member>
+        <member name="M:ApplicationManagement.Databases.EntityConfigurations.DropdownChoiceQuestionConfiguration.Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder{ApplicationManagement.Domain.DropdownChoiceQuestions.DropdownChoiceQuestion})">
+            <summary>
+            The database configuration for DropdownChoiceQuestions. 
+            </summary>
+        </member>
+        <member name="M:ApplicationManagement.Databases.EntityConfigurations.MultipleChoiceQuestionConfiguration.Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder{ApplicationManagement.Domain.MultipleChoiceQuestions.MultipleChoiceQuestion})">
+            <summary>
+            The database configuration for MultipleChoiceQuestions. 
+            </summary>
+        </member>
+        <member name="M:ApplicationManagement.Databases.EntityConfigurations.ProgramApplicantCustomQuestionResponseConfiguration.Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder{ApplicationManagement.Domain.ProgramApplicantCustomQuestionResponses.ProgramApplicantCustomQuestionResponse})">
+            <summary>
+            The database configuration for ProgramApplicantCustomQuestionResponses. 
+            </summary>
+        </member>
+        <member name="M:ApplicationManagement.Databases.EntityConfigurations.ProgramApplicantPersonalInformationConfiguration.Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder{ApplicationManagement.Domain.ProgramApplicantPersonalInformations.ProgramApplicantPersonalInformation})">
+            <summary>
+            The database configuration for ProgramApplicantPersonalInformations. 
+            </summary>
+        </member>
+        <member name="M:ApplicationManagement.Databases.EntityConfigurations.ProgramConfiguration.Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder{ApplicationManagement.Domain.Programs.Program})">
+            <summary>
+            The database configuration for Programs. 
+            </summary>
+        </member>
+        <member name="M:ApplicationManagement.Databases.EntityConfigurations.ProgramCustomQuestionConfiguration.Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder{ApplicationManagement.Domain.ProgramCustomQuestions.ProgramCustomQuestion})">
+            <summary>
+            The database configuration for ProgramCustomQuestions. 
+            </summary>
+        </member>
+        <member name="M:ApplicationManagement.Databases.EntityConfigurations.QuestionTypeConfiguration.Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder{ApplicationManagement.Domain.QuestionTypes.QuestionType})">
+            <summary>
+            The database configuration for QuestionTypes. 
+            </summary>
+        </member>
+        <member name="P:ApplicationManagement.Domain.Addresses.Address.Line1">
+            <summary>
+            Address line 1 (e.g., street, PO Box, or company name).
+            </summary>
+        </member>
+        <member name="P:ApplicationManagement.Domain.Addresses.Address.Line2">
+            <summary>
+            Address line 2 (e.g., apartment, suite, unit, or building).
+            </summary>
+        </member>
+        <member name="P:ApplicationManagement.Domain.Addresses.Address.City">
+            <summary>
+            City, district, suburb, town, or village.
+            </summary>
+        </member>
+        <member name="P:ApplicationManagement.Domain.Addresses.Address.State">
+            <summary>
+            State, county, province, or region.
+            </summary>
+        </member>
+        <member name="P:ApplicationManagement.Domain.Addresses.Address.PostalCode">
+            <summary>
+            ZIP or postal code.
+            </summary>
+        </member>
+        <member name="P:ApplicationManagement.Domain.Addresses.Address.Country">
+            <summary>
+            Two-letter country code <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">(ISO 3166-1 alpha-2)</a>.
+            </summary>
+        </member>
+        <member name="M:ApplicationManagement.Extensions.Services.WebAppServiceConfiguration.AddBoundaryServices(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Reflection.Assembly[])">
+            <summary>
+            Registers all services in the assembly of the given interface.
+            </summary>
+        </member>
+    </members>
+</doc>

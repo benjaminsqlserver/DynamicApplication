@@ -18,22 +18,61 @@ using System.Linq.Expressions;
 using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore.Query;
+using MongoDB.Driver;
 
-public sealed class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options, 
-    ICurrentUserService currentUserService, 
-    IMediator mediator, 
-    TimeProvider dateTimeProvider)
-    : DbContext(options)
+public sealed class ApplicationDbContext : DbContext
 {
+    private readonly IMongoDatabase _mongoDatabase;
+
     #region DbSet Region - Do Not Delete
-    public DbSet<DropdownChoiceQuestion> DropdownChoiceQuestions { get; set; }
-    public DbSet<MultipleChoiceQuestion> MultipleChoiceQuestions { get; set; }
-    public DbSet<ProgramApplicantCustomQuestionResponse> ProgramApplicantCustomQuestionResponses { get; set; }
-    public DbSet<ProgramApplicantPersonalInformation> ProgramApplicantPersonalInformations { get; set; }
-    public DbSet<ProgramCustomQuestion> ProgramCustomQuestions { get; set; }
-    public DbSet<Program> Programs { get; set; }
-    public DbSet<QuestionType> QuestionTypes { get; set; }
+    public IMongoCollection<DropdownChoiceQuestion> DropdownChoiceQuestions { get; private set; }
+    public IMongoCollection<MultipleChoiceQuestion> MultipleChoiceQuestions { get; private set; }
+    public IMongoCollection<ProgramApplicantCustomQuestionResponse> ProgramApplicantCustomQuestionResponses { get; private set; }
+    public IMongoCollection<ProgramApplicantPersonalInformation> ProgramApplicantPersonalInformations { get; private set; }
+    public IMongoCollection<ProgramCustomQuestion> ProgramCustomQuestions { get; private set; }
+    public IMongoCollection<Program> Programs { get; private set; }
+    public IMongoCollection<QuestionType> QuestionTypes { get; private set; }
     #endregion DbSet Region - Do Not Delete
+
+    private readonly ICurrentUserService _currentUserService;
+    private readonly IMediator _mediator;
+    private readonly TimeProvider _dateTimeProvider;
+
+    public ApplicationDbContext(
+        DbContextOptions<ApplicationDbContext> options,
+        ICurrentUserService currentUserService,
+        IMediator mediator,
+        TimeProvider dateTimeProvider,
+        IConfiguration configuration)
+        : base(options)
+    {
+        _currentUserService = currentUserService;
+        _mediator = mediator;
+        _dateTimeProvider = dateTimeProvider;
+
+        // Initialize MongoDB client and database
+        var mongoClient = new MongoClient(configuration.GetValue<string>("DatabaseSettings:ConnectionString"));
+        _mongoDatabase = mongoClient.GetDatabase(configuration.GetValue<string>("DatabaseSettings:DatabaseName"));
+
+        // Initialize MongoDB collections
+        DropdownChoiceQuestions = _mongoDatabase.GetCollection<DropdownChoiceQuestion>(
+            configuration.GetValue<string>("DatabaseSettings:DropdownChoiceQuestionsCollection"));
+        MultipleChoiceQuestions = _mongoDatabase.GetCollection<MultipleChoiceQuestion>(
+            configuration.GetValue<string>("DatabaseSettings:MultipleChoiceQuestionsCollection"));
+        ProgramApplicantCustomQuestionResponses = _mongoDatabase.GetCollection<ProgramApplicantCustomQuestionResponse>(
+            configuration.GetValue<string>("DatabaseSettings:ProgramApplicantCustomQuestionResponsesCollection"));
+        ProgramApplicantPersonalInformations = _mongoDatabase.GetCollection<ProgramApplicantPersonalInformation>(
+            configuration.GetValue<string>("DatabaseSettings:ProgramApplicantPersonalInformationsCollection"));
+        ProgramCustomQuestions = _mongoDatabase.GetCollection<ProgramCustomQuestion>(
+            configuration.GetValue<string>("DatabaseSettings:ProgramCustomQuestionsCollection"));
+        Programs = _mongoDatabase.GetCollection<Program>(
+            configuration.GetValue<string>("DatabaseSettings:ProgramsCollection"));
+        QuestionTypes = _mongoDatabase.GetCollection<QuestionType>(
+            configuration.GetValue<string>("DatabaseSettings:QuestionTypesCollection"));
+
+        // Optionally, seed data
+        // SeedData();
+    }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -70,7 +109,7 @@ public sealed class ApplicationDbContext(DbContextOptions<ApplicationDbContext> 
         await _dispatchDomainEvents();
         return result;
     }
-    
+
     private async Task _dispatchDomainEvents()
     {
         var domainEventEntities = ChangeTracker.Entries<BaseEntity>()
@@ -83,29 +122,29 @@ public sealed class ApplicationDbContext(DbContextOptions<ApplicationDbContext> 
             var events = entity.DomainEvents.ToArray();
             entity.DomainEvents.Clear();
             foreach (var entityDomainEvent in events)
-                await mediator.Publish(entityDomainEvent);
+                await _mediator.Publish(entityDomainEvent);
         }
     }
-        
+
     private void UpdateAuditFields()
     {
-        var now = dateTimeProvider.GetUtcNow();
+        var now = _dateTimeProvider.GetUtcNow();
         foreach (var entry in ChangeTracker.Entries<BaseEntity>())
         {
             switch (entry.State)
             {
                 case EntityState.Added:
-                    entry.Entity.UpdateCreationProperties(now, currentUserService?.UserId);
-                    entry.Entity.UpdateModifiedProperties(now, currentUserService?.UserId);
+                    entry.Entity.UpdateCreationProperties(now, _currentUserService?.UserId);
+                    entry.Entity.UpdateModifiedProperties(now, _currentUserService?.UserId);
                     break;
 
                 case EntityState.Modified:
-                    entry.Entity.UpdateModifiedProperties(now, currentUserService?.UserId);
+                    entry.Entity.UpdateModifiedProperties(now, _currentUserService?.UserId);
                     break;
-                
+
                 case EntityState.Deleted:
                     entry.State = EntityState.Modified;
-                    entry.Entity.UpdateModifiedProperties(now, currentUserService?.UserId);
+                    entry.Entity.UpdateModifiedProperties(now, _currentUserService?.UserId);
                     entry.Entity.UpdateIsDeleted(true);
                     break;
             }

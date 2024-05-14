@@ -7,7 +7,8 @@ using Destructurama.Attributed;
 using ApplicationManagement.Exceptions;
 using ApplicationManagement.Domain.ProgramApplicantPersonalInformations.Models;
 using ApplicationManagement.Domain.ProgramApplicantPersonalInformations.DomainEvents;
-
+using System.Text.Json.Serialization;
+using System.Runtime.Serialization;
 
 public class ProgramApplicantPersonalInformation : BaseEntity
 {
@@ -26,7 +27,7 @@ public class ProgramApplicantPersonalInformation : BaseEntity
     public string IdNumber { get; private set; }
 
     [JsonIgnore, IgnoreDataMember]
-    public date DateOfBirth { get; private set; }
+    public DateTime DateOfBirth { get; private set; }
 
     public string Gender { get; private set; }
 

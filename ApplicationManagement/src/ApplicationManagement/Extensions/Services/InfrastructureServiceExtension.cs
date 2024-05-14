@@ -8,25 +8,21 @@ using Configurations;
 using Hangfire;
 using Hangfire.MemoryStorage;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Diagnostics.HealthChecks;
+using MongoDB.Driver;
 
 public static class ServiceRegistration
 {
     public static void AddInfrastructure(this IServiceCollection services, IWebHostEnvironment env, IConfiguration configuration)
     {
         // DbContext -- Do Not Delete
-        var connectionString = configuration.GetConnectionStringOptions().ApplicationManagement;
-        if(string.IsNullOrWhiteSpace(connectionString))
-        {
-            // this makes local migrations easier to manage. feel free to refactor if desired.
-            connectionString = env.IsDevelopment() 
-                ? "Host=localhost;Port=62803;Database=dev_applicationmanagement;Username=postgres;Password=postgres"
-                : throw new Exception("The database connection string is not set.");
-        }
+        //var connectionString = configuration.GetConnectionStringOptions().ApplicationManagement;
+        var connectionString = "mongodb://localhost:C2y6yDjf5%2FR%2Bob0N8A7Cgv30VRDJIWEHLM%2B4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw%2FJw%3D%3D@localhost:10255/admin?ssl=true, DatabaseName: DynamicApplicationDB, CollectionName: DynamicApplications, DropdownChoiceQuestionsCollection: DropdownChoiceQuestions, MultipleChoiceQuestionsCollection: MultipleChoiceQuestions, ProgramApplicantCustomQuestionResponsesCollection: ProgramApplicantCustomQuestionResponses, ProgramApplicantPersonalInformationsCollection: ProgramApplicantPersonalInformations, ProgramCustomQuestionsCollection: ProgramCustomQuestions, ProgramsCollection: Programs, QuestionTypesCollection: QuestionTypes";
+               
+        
 
-        services.AddDbContext<ApplicationDbContext>(options =>
-            options.UseNpgsql(connectionString,
-                builder => builder.MigrationsAssembly(typeof(ApplicationDbContext).Assembly.FullName))
-                            .UseSnakeCaseNamingConvention());
+       
+
 
         services.AddHostedService<MigrationHostedService<ApplicationDbContext>>();
 
