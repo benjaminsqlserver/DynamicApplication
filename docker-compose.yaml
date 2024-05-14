@@ -1,0 +1,33 @@
+version: '3.7'
+
+services:
+  applicationmanagement-db:
+    image: postgres
+    restart: always
+    ports:
+      - '62803:5432'
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: dev_applicationmanagement
+    volumes:
+      - applicationmanagement-data:/var/lib/postgresql/data
+
+  jaeger:
+    image: jaegertracing/all-in-one:latest
+#    port mappings: https://www.jaegertracing.io/docs/1.32/getting-started/
+    ports:
+      - "62811:5775/udp"
+      - "62810:6831/udp"
+      - "62812:6832/udp"
+      - "62813:5778"
+      - "62814:16686"
+      - "62815:14250"
+      - "62816:14268"
+      - "62817:14269"
+      - "62818:9411"
+
+        
+volumes:
+  # compose volumes marker - do not delete
+  applicationmanagement-data:
